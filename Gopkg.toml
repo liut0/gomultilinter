@@ -1,0 +1,24 @@
+
+required = [
+    "github.com/abice/go-enum"
+]
+
+[prune]
+  go-tests = true
+  unused-packages = true
+
+[[constraint]]
+  name = "github.com/ghodss/yaml"
+  version = "1.0.0"
+
+[[constraint]]
+  name = "github.com/sirupsen/logrus"
+  version = "1.0.4"
+
+[[constraint]]
+  name = "github.com/abice/go-enum"
+  version = "0.1.2"
+
+[[constraint]]
+  name = "github.com/stretchr/testify"
+  version = "1.2.1"

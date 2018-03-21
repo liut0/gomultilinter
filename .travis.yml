@@ -1,0 +1,16 @@
+sudo: false
+language: go
+
+go:
+  - 1.10.x
+
+install:
+  - go get -v github.com/golang/dep/cmd/dep
+  - dep ensure -v
+  - rsync -a -v ./vendor/ $GOPATH/src
+  - rm -rf ./vendor
+
+script:
+  - go test -v ./...
+  - go install
+  - gomultilinter -v -u ./...

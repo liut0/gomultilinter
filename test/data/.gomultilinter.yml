@@ -1,0 +1,14 @@
+exclude:
+  names:
+    - 'ignored\.go'
+  categories:
+    - 'ignored-category'
+  messages:
+    - 'ignored-msg'
+
+linter:
+  - package: 'github.com/liut0/gomultilinter/test/linter/testLinter'
+  - package: 'github.com/liut0/gomultilinter-gocyclo'
+    config:
+      max_cyclo: 1
+  - package: 'github.com/liut0/gomultilinter-golint/gomultilinter'

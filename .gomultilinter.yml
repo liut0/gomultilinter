@@ -1,0 +1,21 @@
+exclude:
+  names:
+    - 'test/data/.+\.go'
+
+linter:
+  - package: 'github.com/liut0/gomultilinter-golint/gomultilinter'
+  - package: 'github.com/liut0/gomultilinter-gocyclo'
+  - package: 'github.com/liut0/gomultilinter-commonlinters/dep'
+  - package: 'github.com/liut0/gomultilinter-commonlinters/licenses'
+  - package: 'github.com/liut0/gomultilinter-commonlinters/preventusage'
+    config:
+      packages:
+        'golang.org/x/net/context': 'usage of pkg "golang.org/x/net/context" should be prevented, use "context" instead'
+  - package: 'github.com/liut0/gomultilinter-errcheck/gomultilinter'
+    config:
+      exclude:
+        - 'fmt.Fprintln'
+        - 'fmt.Fprintf'
+        - 'fmt.Println'
+        - 'fmt.Printf'
+        - 'path/filepath.Walk'
