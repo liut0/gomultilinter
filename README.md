@@ -23,6 +23,7 @@ Since [Plugins](https://golang.org/pkg/plugin/) are used under the hood gomultil
     - [Available Linters](#available-linters)
     - [Custom Linters](#custom-linters)
     - [Linter Vendoring](#linter-vendoring)
+- [Dockerbuild](#docker-build)
 - [Exit status](#exit-status)
 - [Feedback](#feedback)
 
@@ -124,6 +125,24 @@ The custom linter can be added to gomultilinter in two ways:
 
 Linter packages get resolved from the working directory the same way go does. If a linter pkg exists in the vendor dir it's preferred.
 Therefore you can vendor the linter's how you would vendor any other package.
+
+## Docker build
+Example of a docker build configuration
+```
+...
+
+[RESTORE DEPENDENCIES]
+
+RUN go get -v -u github.com/liut0/gomultilinter
+COPY .gomultilinter.yml .
+RUN gomultilinter -v -u -install-only
+
+[COPY SOURCES]
+
+RUN gometalinter -v
+
+...
+```
 
 ## Exit status
 
